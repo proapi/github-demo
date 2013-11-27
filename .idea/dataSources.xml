@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="3590907352">
+    <data-source source="LOCAL" name="Rails github-demo: development" uuid="8535a99f-adfb-4439-899e-89e3941255f9">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/development.sqlite3</jdbc-url>
+      <libraries>
+        <library>
+          <url>$USER_HOME$/.RubyMine40/config/jdbc-drivers/xerial-sqlite-license.txt:/home/pawelski/.RubyMine40/config/jdbc-drivers/sqlite-jdbc-3.7.2.jar:</url>
+        </library>
+      </libraries>
+    </data-source>
+  </component>
+</project>
+

@@ -42,4 +42,12 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]
+
+# gem to use authentication via github
+gem 'omniauth-github'
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
