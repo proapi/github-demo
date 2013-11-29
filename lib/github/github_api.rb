@@ -2,7 +2,7 @@ require 'json'
 require 'open-uri'
 
 module Github
-  class API
+  class GithubAPI
     API_URL = 'https://api.github.com/users'
 
     def self.user(login)

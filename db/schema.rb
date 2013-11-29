@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131129003022) do
+ActiveRecord::Schema.define(version: 20131129112730) do
 
   create_table "repos", force: true do |t|
     t.string   "name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20131129003022) do
     t.boolean  "public"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "description"
   end
 
   add_index "repos", ["user_id"], name: "index_repos_on_user_id"

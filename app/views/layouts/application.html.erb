@@ -36,19 +36,36 @@
 
 <div class="row">
   <div class="large-10 large-centered columns">
-    <div class="panel header">
-      <% if current_user %>
-          <%= "Witamy #{current_user.name}" %>
-          /
-          <%= link_to 'Import repozytoriów z bazy danych', import_user_url(current_user, wipeout: true) %>
-          /
-          <%= link_to 'Wyloguj się', signout_url %>
-      <% else %>
-          <%= link_to 'Zaloguj się przez Github', '/auth/github' %>
-      <% end %>
-    </div>
+    <nav class="top-bar" data-options="back_text: POWRÓT">
+      <ul class="title-area">
+        <li class="name">
+          <% if current_user %>
+              <h1><%= "#{current_user.name}" %></h1>
+          <% else %>
+              <h1><%= 'Musisz się zalogować!' %></h1>
+          <% end %>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>MENU</span></a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <ul class="left">
+          <li class="divider"></li>
+          <% if current_user %>
+              <li><%= link_to 'Import repozytoriów z bazy danych', edit_user_url(current_user, wipeout: true) %></li>
+              <li><%= link_to 'Lista repozytoriów', current_user %></li>
+              <li><%= link_to 'Wyloguj się', signout_url %></li>
+              <li><%= link_to 'Usuń konto', current_user, method: :delete %></li>
+          <% else %>
+              <li><%= link_to 'Zaloguj się przez Github', '/auth/github' %></li>
+          <% end %>
+        </ul>
+      </section>
+    </nav>
   </div>
 </div>
+
+<%= render 'layouts/flash' %>
 
 <div class="row">
   <div class="large-10 large-centered columns">

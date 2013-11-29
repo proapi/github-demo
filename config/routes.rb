@@ -1,17 +1,14 @@
 GithubDemo::Application.routes.draw do
+  get "home/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root to: 'users#new'
+  root to: 'home#index'
   get '/auth/:provider/callback' => 'sessions#create'
   get '/signout' => 'sessions#destroy', :as => :signout
 
-  resources :users do
-    member do
-      get 'import'
-    end
-  end
+  resources :users, except: [:new, :create, :index]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

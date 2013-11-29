@@ -1,0 +1,23 @@
+<h3>Import repozytoriów</h3>
+<% if @repositories %>
+    <h6>Lista repozytoriów pobranych z API Github</h6>
+    <%= form_for @user do |f| %>
+        <% @repositories.each_with_index do |repo, index| %>
+            <%= f.fields_for :repos, @user.repos.build do |r| %>
+                <p>
+                  <b><%= index + 1 %></b><br/>
+                  Nazwa repozytorium: <%= repo['name'] %><br/>
+                  <%= r.hidden_field :name, value: repo['name'] %>
+                  <%= r.hidden_field :stargazers_count, value: repo['stargazers_count'] %>
+                  <%= r.hidden_field :forks_count, value: repo['forks_count'] %>
+                  <%= r.hidden_field :url, value: repo['url'] %>
+                  <%= r.hidden_field :description, value: repo['description'] %>
+                  Importować? <%= r.check_box :public %>
+                </p>
+            <% end unless repo['private'] %>
+        <% end %>
+        <%= f.submit "Zapisz dane" %>
+    <% end %>
+<% else %>
+    <p>Brak publicznych repozytoriów Github dla użytkownika.</p>
+<% end %>

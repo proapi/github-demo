@@ -1,5 +1,24 @@
-<ul>
-  <% current_user.repos.public.each do |repo| %>
-      <li><%= repo.name %> - <%= repo.stargazers_count %> - <%= repo.forks_count %></li>
-  <% end %>
-</ul>
+<h3>Lista repozytoriów</h3>
+<% unless @user.repos.empty? %>
+    <table>
+      <thead>
+      <th>Nazwa</th>
+      <th>Gwiazdki</th>
+      <th>Forki</th>
+      <th>Opis</th>
+      </thead>
+      <tbody>
+      <% @user.repos.public.each do |repo| %>
+          <tr>
+            <td><%= repo.name %></td>
+            <td><%= repo.stargazers_count %></td>
+            <td><%= repo.forks_count %></td>
+            <td><%= repo.description %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% else %>
+    <p>Aktualnie brak repozytoriów!</p>
+    <p><%= link_to 'Importuj', edit_user_path(@user) %></p>
+<% end %>
