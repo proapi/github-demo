@@ -1,0 +1,19 @@
+<% if @repositories %>
+    <%= form_for current_user do |f| %>
+        <% @repositories.each_with_index do |repo, index| %>
+           <%= f.fields_for :repos, current_user.repos.build do |r| %>
+            <p>
+              <%= index + 1 %><br/>
+              <%= r.text_field :name, value: repo['name'] %>
+              <%= r.text_field :stargazers_count, value: repo['stargazers_count'] %>
+              <%= r.text_field :forks_count, value: repo['forks_count'] %>
+              <%= r.text_field :url, value: repo['url'] %>
+              <%= r.check_box :public %>
+            </p>
+            <% end %>
+        <% end %>
+        <%= f.submit "Zapisz dane" %>
+    <% end %>
+<% else %>
+    <% 'Brak publicznych repozytoriów dla użytkownika' %>
+<% end %>

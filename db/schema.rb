@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131126212752) do
+ActiveRecord::Schema.define(version: 20131129003022) do
+
+  create_table "repos", force: true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.string   "url"
+    t.integer  "stargazers_count"
+    t.integer  "forks_count"
+    t.boolean  "public"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "repos", ["user_id"], name: "index_repos_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "provider"
@@ -20,6 +33,7 @@ ActiveRecord::Schema.define(version: 20131126212752) do
     t.string   "repos_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "login"
   end
 
 end

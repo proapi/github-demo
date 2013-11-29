@@ -1,0 +1,5 @@
+<ul>
+  <% current_user.repos.public.each do |repo| %>
+      <li><%= repo.name %> - <%= repo.stargazers_count %> - <%= repo.forks_count %></li>
+  <% end %>
+</ul>

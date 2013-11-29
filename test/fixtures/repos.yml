@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  user_id: 
+  url: MyString
+  stargazers_count: 1
+  forks_count: 1
+  public: false
+
+two:
+  name: MyString
+  user_id: 
+  url: MyString
+  stargazers_count: 1
+  forks_count: 1
+  public: false

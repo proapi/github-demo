@@ -2,11 +2,23 @@
 <html>
 <head>
   <title>GithubDemo</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<div>
+  <% if current_user %>
+      <%= "Witamy #{current_user.name}" %>
+      <br/>
+      <%= link_to 'Import repozytoriów z bazy danych', import_user_url(current_user, wipeout: true) %>
+      <br/>
+      <%= link_to 'Wyloguj się', signout_url %>
+  <% else %>
+      <%= link_to "Zaloguj się przez Github", "/auth/github" %>
+  <% end %>
+</div>
 
 <%= yield %>
 

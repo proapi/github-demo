@@ -1,5 +1,9 @@
 <% if current_user %>
     <%= "Witamy #{current_user.name}" %>
+    <br/>
+    <%= link_to 'Import repozytoriów z bazy danych', import_user_url(current_user) %>
+    <br/>
+    <%= link_to 'Wyloguj się', signout_url %>
 <% else %>
-    <%= link_to "Sign in with Github", "/auth/github" %>
+    <%= link_to "Zaloguj się przez Github", "/auth/github" %>
 <% end %>
